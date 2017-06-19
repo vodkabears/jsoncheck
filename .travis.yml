@@ -1,0 +1,23 @@
+language:
+  - go
+
+go:
+  - 1.x
+
+install:
+  - make install
+
+script:
+  - make lint
+
+before_deploy:
+  - make build
+deploy:
+  provider: releases
+  api_key:
+    secure: "TWkwRVQlBG5/BA0QKNcqZNHnWDJwAkfPPPzJdwhEUk0KdLPXc6WFk07wZsg/Q1OmO5+zzAqHLLNfwjAx/Xr6yi+d2+dYqsmAVfHOorU6PC+FdlANCvyHJ+z71pLSu1u/cOrc3DLtHDV8MhA9bbsD+RKqYU/8e/4yLKcpQ8NDuusNupDbyaKEMQRIpBw5k2oCUxayjVXurRNfG9RQA0R1ZGb8k6mxJMqjzV0gR3b5p598MDnN8wsKtt6OVQ/86UQ9pzJKJyhP7F2FQd8+kkz6KSKotlbxaMTK9PNMpFiCBPzgaYI74VkL15sgbq2n65AbD/Lxov2KGz5gZrNzZiUiw1FEdxOFhzmPaC+5J4zkHbBnn/gWAzfEmozWzkEODFuNG4gKj3MYXxAe3e+0frow54r8XiyhFnjMoCe9iH879zKMbDj5OF+9Kn+YAQBpCVa9SccyY1UMjRlLWUGCu9si6YrseJZ+REqPw7gbI1LmE6Z/jqM1JAmKT83U9RCqRWYvvR783YOTG8mIWoONrHpiipPd+HVnRAX11bVWRJQKGOYv3oz0g/QB/cHkrM/4g2uxPyRlaj+8DNVVsrsxeOZY41CJ2OFFwhC2c0tihuk/jk1NigLCUTmFhMPuyCKKAPgxEQDyrL8e45PxExU/qklBpzPecWUtX9fx+Roz5XU/VKI="
+  file_glob: true
+  file: dist/*
+  skip_cleanup: true
+  on:
+    tags: true
