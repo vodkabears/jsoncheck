@@ -1,6 +1,4 @@
-PROJECT := github.com/vodkabears/jsoncheck
-VERSION := $(shell git describe --tags --abbrev=0)
-VERSION_FLAG := $(PROJECT)/main.version=$(VERSION)
+VERSION_FLAG := main.version=$(shell git describe --tags --abbrev=0)
 DIST_FOLDER := dist
 
 .PHONY: githooks
